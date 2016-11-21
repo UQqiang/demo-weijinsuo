@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人人网络</title>
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+    .panel-renren {
+        border-color: #fff;
+        border-radius: 0;
+        padding: 0;
+        background-color: #fff;
+        margin-bottom: 25px;
+        box-shadow: 1px 1px 5px #c0c0c0;
+        color: #555;
+/*         background-color: #E9232C;
+color: #fff; */
+    }
+
+    .panel-renren.active {
+        background-color: #e9232c;
+        border-color: #e9232c;
+        color: #fff;
+        position: relative;
+    }
+
+
+    .panel-renren.active::before {
+        content: "\e915";
+        position: absolute;
+        font-family: renren;
+        color: #fff;
+        font-size: 33px;
+        font-weight: 100;
+        top: -8px;
+        left: -1px;
+    }
+    
+    .panel-renren > .panel-heading {
+        height: 150px;
+        float: right;
+        width: 120px;
+        padding: 45px 0 35px;
+        text-align: center;
+        border-left: 1px dashed #c0c0c0;
+        position: relative;
+        padding-top: 50px;
+    }
+
+    .panel-renren > .panel-heading::before {
+        height: 14px;
+        width: 14px;
+        border-radius: 7px;
+        background-color: #F0F0F0;
+        content: "";
+        display: block;
+        position: absolute;
+        top: -7px;
+        left: -7px;
+    }
+
+    .panel-renren > .panel-heading::after {
+        height: 14px;
+        width: 14px;
+        border-radius: 7px;
+        background-color: #F0F0F0;
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -7px;
+        left: -7px;
+        box-shadow: 0px 3px 1px #c0c0c0 inset;
+    }
+
+    .panel-renren > .panel-heading p > span:nth-of-type(1){ 
+        font-size: 32px;
+        font-weight: bolder;
+    }
+
+    .panel-renren > .panel-heading p > span > sub {
+        font-size: 10px;
+    }
+
+    .panel-renren > .panel-body {
+        height: 150px;
+        margin-right: 120px;
+    }
+
+    .panel-renren > .panel-body p {
+        font-size: 16px;
+    }
+
+    .panel-renren > .panel-body .row p {
+        color: #C0C0C0;
+        font-size: 10px;
+    }
+
+    .panel-renren > .panel-body .row p  span{ 
+        color: #fff;
+        font-size: 14px;
+    }
+    
+    .panel-renren > .panel-heading + .panel-collapse > .panel-body {
+        border-top-color: #ddd;
+    }
+    
+    .panel-renren > .panel-heading .badge {
+        color: #f5f5f5;
+        background-color: #333;
+    }
+    
+    .panel-renren > .panel-footer + .panel-collapse > .panel-body {
+        border-bottom-color: #ddd;
+    }
+    
+    #products {
+        padding-top: 30px;
+        background-color: #F0F0F0;
+    }
+    
+    #products > .container > .nav-tabs {
+        padding-left: 12px;
+    }
+    
+    #products > .container > .nav-tabs > li > a {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        color: #444;
+    }
+    
+    #products > .container > .nav-tabs > li.active > a {
+        border-bottom: 4px solid #E93223;
+        color: #e93223;
+    }
+    
+    #products > .container > .tab-content {
+        margin-top: 20px;
+    }
+
+    #products .panel-heading .tooltips {
+        position: absolute;
+        height: 18px;
+        width: 100%;
+        top: 20px;
+    }
+
+    #products .panel-heading .tooltips span {
+        height: 22px;
+        width: 22px;
+        display: inline-block;
+        text-align: center;
+        font-size: 15px;
+        font-weight: normal;
+        cursor: pointer;
+    }
+
+    #products .panel-heading .tooltips span.primary {
+        color: #e9232c;
+        border: 1px solid #e9232c;
+    }
+
+    #products .panel-heading .tooltips span.secondary {
+        color: #399;
+        border: 1px solid #399;
+    }
+
+    </style>
+</head>
+
+<body>
+    <section id="products">
+        <div class="container">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">特别推荐</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">微投资</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">微小宝</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">微消费</a></li>
+                <li role="presentation" class="pull-right"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">更多</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane fade in  active" id="home">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="panel panel-renren active">
+                            <div class="panel-heading">
+                                <p>
+                                    <span>8<sub>%</sub></span>
+                                    <br>
+                                    <span>年利率</span>
+                                </p>
+                            </div>
+                            <div class="panel-body">
+                                <p>新手体验标0650期</p>
+                                <div class="row">
+                                    <div class="col-xs-6 text-left">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6 text-left">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6 text-right">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="panel panel-renren">
+                            <div class="panel-heading">
+                                <p class="tooltips">
+                                    <span class="primary" data-toggle="tooltip" data-placement="top" title="北京欢迎您">京</span>
+                                    <span class="secondary" data-toggle="tooltip" data-placement="top" title="上海欢迎您">沪</span>
+                                </p>
+                                <p>
+                                    <span>8<sub>%</sub></span>
+                                    <br>
+                                    <span>年利率</span>
+                                </p>
+                            </div>
+                            <div class="panel-body">
+                                <p>新手体验标0650期</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="panel panel-renren">
+                            <div class="panel-heading">
+                                <p>
+                                    <span>8<sub>%</sub></span>
+                                    <br>
+                                    <span>年利率</span>
+                                </p>
+                            </div>
+                            <div class="panel-body">
+                                <p>新手体验标0650期</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="panel panel-renren">
+                            <div class="panel-heading">
+                                <p>
+                                    <span>8<sub>%</sub></span>
+                                    <br>
+                                    <span>年利率</span>
+                                </p>
+                            </div>
+                            <div class="panel-body">
+                                <p>新手体验标0650期</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="panel panel-renren">
+                            <div class="panel-heading">
+                                <p>
+                                    <span>8<sub>%</sub></span>
+                                    <br>
+                                    <span>年利率</span>
+                                </p>
+                            </div>
+                            <div class="panel-body">
+                                <p>新手体验标0650期</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="panel panel-renren">
+                            <div class="panel-heading">
+                                <p>
+                                    <span>8<sub>%</sub></span>
+                                    <br>
+                                    <span>年利率</span>
+                                </p>
+                            </div>
+                            <div class="panel-body">
+                                <p>新手体验标0650期</p>
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <p>
+                                            起投金额(元)<br>
+                                            <span>0.01<sub>万</sub></span>
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane fade" id="profile">4324</div>
+                <div role="tabpanel" class="tab-pane fade" id="messages">123</div>
+                <div role="tabpanel" class="tab-pane fade" id="settings">...</div>
+            </div>
+        </div>
+    </section>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function() {
+             $('[data-toggle="tooltip"]').tooltip();
+        })
+    </script>
+</body>
+
+</html>

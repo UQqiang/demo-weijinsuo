@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人人网络</title>
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/main.css">
+    <style type="text/css">
+		#banner .item-image img{ 
+			width: 100%;
+		}
+
+    	#banner .item-image {
+    		
+    		background-size: cover; /* contain */
+    		background-position: center;
+    		background-repeat: no-repeat;
+    	}
+
+
+    	@media (min-width: 768px) {
+    		#banner .item-image { 
+				height: 410px;
+    		}
+    	}
+    </style>
+</head>
+
+<body>
+	<header>
+		
+	</header>
+    <section id="banner">
+        <div id="carousel-renren" class="carousel slide" data-ride="carousel">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-renren" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-renren" data-slide-to="1"></li>
+		    <li data-target="#carousel-renren" data-slide-to="2"></li>
+		  </ol>
+
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		    <div class="item active">
+		      <div class="item-image">
+		      	
+		      </div>
+		    </div>
+		    <div class="item">
+		      <div class="item-image">
+		      	
+		      </div>
+		    </div>
+		    <div class="item">
+		      <div class="item-image">
+		      	
+		      </div>
+		    </div>
+		  </div>
+
+		  <!-- Controls -->
+		  <a class="left carousel-control" href="#carousel-renren" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+		  <a class="right carousel-control" href="#carousel-renren" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+		</div>
+    </section>
+    <section>
+    </section>
+    <section>
+    </section>
+    <section>
+    </section>
+    <section>
+    </section>
+    <section>
+    </section>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    	$("#banner .item-image").each(function(index, item) {
+    		$(item).css({
+    			backgroundImage: 'url(img/slide_0' + (index + 1) + "_2000x410.jpg)"  
+    		});
+
+    		function resize (){
+    			var isSmallScreen = $(window).width() < 768 ? 1:0;
+
+    			console.log(isSmallScreen);
+    			if(isSmallScreen) {
+    				$(".item-image").each(function(index, item) {
+    					var imgHtml = '<img src="' + 'img/slide_0' + (index + 1) + '_640x340.jpg" alt="" />';
+    					console.log(imgHtml);
+    					$(item).html(imgHtml);
+    				})
+    			}else {
+    				$(item).html("");
+    			}
+    		}
+
+    		$(window).on("resize", resize).trigger("resize");
+    	})
+    </script>
+</body>
+
+</html>

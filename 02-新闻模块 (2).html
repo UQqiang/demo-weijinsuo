@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人人网络</title>
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/main.css">
+	<style type="text/css">
+		#news {
+			margin-top: 40px;
+		}
+
+		#news > .container > .row .news-title {
+			padding: 10px 0px;
+			border-bottom: 1px dashed #c0c0c0;
+			text-align: center;
+			font-size: 20px;
+			position: relative;
+		}
+
+		#news > .container > .row .news-title::after {
+			content: '';
+			width: 10px;
+			height: 10px;
+			position: absolute;
+			bottom: -5px;
+			right: -10px;
+			border-radius: 50%;
+			border:1px solid #ccc;
+			display: inline-block;
+		}
+
+		.icon-news01::before {
+			content: "\e90e";
+		    font-size: 35px;
+		    color: #EAEAEA;
+		}
+
+		#news > .container > .row .nav-renren li {
+			margin-bottom: 20px;
+		}
+
+		#news > .container > .row .nav-renren li.active a {
+			background: #e9232c;
+		}
+
+		#news > .container > .row .nav-renren li > a {
+			width: 67px;
+			height: 67px;
+			background: #F5F5F5;
+			border-radius: 50%;
+			display: inline-block;
+			text-align: center;
+		}
+
+		#news > .container > .row .nav-renren li > a:hover {
+			background: #e9232c;
+		}
+
+		#news > .container > .row .tab-content {
+			margin-top: 20px;
+
+		}
+
+		#news > .container > .row div > i {
+			position: absolute;
+			height: 100%;
+			border:1px dashed #c0c0c0;
+			top: 5px;
+			right: 35px;
+			z-index: -1;
+		}
+
+/*		@media (max-width: 992px) {
+			#news > .container > .row .nav-renren {
+				width: 100%;
+				text-align: center;
+			}
+			#news > .container > .row .nav-renren li {
+				display: inline-block;
+				margin-left: 20px;
+			}
+
+			#news > .container > .row .tab-content {
+				width: 400px;
+				margin: 20px auto;
+
+			}
+
+		}*/
+	</style>
+</head>
+
+<body>
+	<header>
+		
+	</header>
+
+    <section id="news">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-md-offset-3 col-md-2">
+    				<div class="news-title">
+    					全部新闻
+    				</div>
+    			</div>
+				<div class="col-md-1">
+					<ul class="nav nav-pills nav-stacked nav-renren " role="tablist">
+						<li role="presentation" class="active" data-title="全部新闻">
+							<a href="#new1" data-toggle="tab" >
+								<i class="icon-news01"></i>
+							</a>
+						</li>
+						<li role="presentation" data-title="最新动态">
+							<a href="#new2" data-toggle="tab" >
+								<i class="icon-news01"></i>
+							</a>
+						</li>
+						<li role="presentation"  data-title="娱乐时尚">
+							<a href="#new3" data-toggle="tab">
+								<i class="icon-news01"></i>
+							</a>
+						</li>
+						<li role="presentation"  data-title="美女帅哥">
+							<a href="#new4" data-toggle="tab">
+								<i class="icon-news01"></i>
+							</a>
+						</li>
+						<li role="presentation" data-title="iphone7 PLUS">
+							<a href="#new5" data-toggle="tab" >
+								<i class="icon-news01"></i>
+							</a>
+						</li>
+					</ul>
+					<i class="line hidden-sm hidden-xs"></i>
+				</div>
+				<div class="col-md-6">
+					 <div class="tab-content">
+					    <div role="tabpanel" class="tab-pane fade in active" id="new1">
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    </div>
+					    <div role="tabpanel" class="tab-pane fade" id="new2">
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    </div>
+					    <div role="tabpanel" class="tab-pane fade" id="new3">
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    </div>
+					    <div role="tabpanel" class="tab-pane fade" id="new4">
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    </div>
+					    <div role="tabpanel" class="tab-pane fade" id="new5">
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    	<p>【微还款】2015年12月10日共23个项目按时完成全部还款</p>
+					    </div>
+					  </div>
+				</div>
+    		</div>
+    	</div>
+    </section>
+    <section>
+    </section>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<!-- 	<script type="text/javascript">
+		console.log($(".nav-renren"));
+		$(".nav-renren").children().click(function() {
+			console.log($(".news-title"));
+			console.log($(this));
+			console.log($(this).data("title"));
+			$(".news-title").text($(this).data("title"));
+		})
+	</script> -->
+</body>
+
+</html>

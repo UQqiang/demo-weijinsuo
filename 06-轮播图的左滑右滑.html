@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>人人网络</title>
+    <!-- Bootstrap -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+      <script src="lib/html5shiv/html5shiv.min.js"></script>
+      <script src="lib/respond/respond.min.js"></script>
+    <![endif]-->
+    <link drel="stylesheet" href="css/main.css">
+    <style type="text/css">
+    .item-image img {
+        width: 100%;
+    }
+    
+    .item-image {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        overflow: hidden;
+        text-align: center;
+    }
+    
+    @media screen and (min-width: 768px) {
+        .item-image {
+            height: 410px;
+        }
+        .item-image img {
+            display: none;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div id="home_slide" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#home_slide" data-slide-to="0" class="active"></li>
+            <li data-target="#home_slide" data-slide-to="1"></li>
+            <li data-target="#home_slide" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <div class="item-image" data-image-lg="img/slide_01_2000x410.jpg" data-image-xs="img/slide_01_640x340.jpg" data-image-alt="哈哈">
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-image-lg="img/slide_02_2000x410.jpg" data-image-xs="img/slide_02_640x340.jpg" data-image-alt="哈哈">
+                </div>
+            </div>
+            <div class="item">
+                <div class="item-image" data-image-lg="img/slide_03_2000x410.jpg" data-image-xs="img/slide_03_640x340.jpg" data-image-alt="哈哈">
+                </div>
+            </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#home_slide" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">上一张</span>
+        </a>
+        <a class="right carousel-control" href="#home_slide" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">下一张</span>
+        </a>
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+	    function resize() {
+	        // 入口函数 -- 当文档加载完成才会执行的函数
+	        var windowWidth = $(window).width();
+
+	        // 判断屏幕属于大还是小
+	        var isSmallScreen = windowWidth < 768;
+
+	        // 根据大小为界面上的每一张轮播图设置相应的背景图片+
+	        $('#home_slide .item-image').each(function(index, item) {
+	                console.log(123);
+	                var $item = $(item); //拿到的是dom对象
+	                var imageUrl = $item.data(isSmallScreen ? 'image-xs' : 'image-lg');
+	                $item.css('backgroundImage', "url(" + imageUrl + ")");
+	                // 因为我们需要小图时 尺寸等比例变化，所以小图时我们使用img的方式
+	                // 其他情况都使用img方式
+	                if (isSmallScreen) {
+	                    $item.html('<img src="' + imageUrl + '" alt="" />');
+	                } else {
+	                    $item.html('');
+	                }
+	            }) //获取到是一个DOM数组
+	    }
+	    $(window).on('resize', resize).trigger('resize');
+
+	    
+	    $('.carousel').each(function(index, item) {
+	    	var startX = 0;
+	    	var endX = 0;
+	    	
+	    	$(this).on("touchstart", function(event) {
+	    		startX =  event.originalEvent.targetTouches[0].pageX;
+	    		event.preventDefault();
+	    	});
+
+	    	$(this).on("touchmove", function(event) {
+	    		endX =  event.originalEvent.targetTouches[0].pageX;
+	    		event.preventDefault();
+	    	});
+
+	    	$(this).on("touchend", function(event) {
+	    		console.log("结束");
+	    		var offset = endX - startX;
+	    		console.log(offset);
+	    		if(offset > 50) {
+	    			$('.carousel').carousel('prev');
+	    		}else if(offset < -50) {
+	    			$('.carousel').carousel('next');
+	    		}
+	    		event.preventDefault();
+	    	});
+	    })
+    </script>
+</body>
+
+</html>
